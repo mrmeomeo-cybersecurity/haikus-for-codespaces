@@ -7,7 +7,9 @@
     "author": "Microsoft",
     "scripts": {
         "start": "node index.js",
-        "dev": "nodemon"
+        "dev": "nodemon",
+        "cf:dev": "npx wrangler dev",
+        "cf:deploy": "npx wrangler deploy"
     },
     "dependencies": {
         "ejs": "^3.1.10",
