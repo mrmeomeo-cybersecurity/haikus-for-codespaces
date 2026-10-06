@@ -1,26 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
   <head>
-    <title>Haikus for Mona</title>
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Haikus for Mona">
-    <meta property="og:description" content="Some of the best haikus you'll ever read about our rescue dog June">
-    <meta property="og:image" content="/images/sunlight.jpg">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astra Studio — AI Creative Production Agent</title>
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Haikus for Mona</h1>
-    <div>
-      <% for(var i=0; i < haikus.length; i++) { %>
-        <img
-          class="mona-images"
-          src="images/<%= haikus[i].image %>" />
-        <div 
-          class="haiku-containers">
-          <p 
-            class="haikus"
-          ><%- haikus[i].text %></p>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="Astra Studio home">
+          <span class="brand-mark">✦</span><span>ASTRA<span class="muted">/</span>STUDIO</span>
+        </a>
+        <div class="agent-chip"><span class="status-dot"></span> Creative Production Agent</div>
+        <nav aria-label="Điều hướng chính">
+          <a class="nav-item active" href="#create"><span>✦</span> Tạo mới</a>
+          <a class="nav-item" href="#workflow"><span>◌</span> Workflow</a>
+          <a class="nav-item" href="#analysis"><span>⌁</span> Image → Text</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <p class="eyebrow">MODEL ĐANG DÙNG</p>
+          <strong>GPT-6 Astra</strong>
+          <span>Visual reasoning · Creative direction</span>
         </div>
-      <% } %>
-    </div>
+      </aside>
+
+      <section class="workspace" id="top">
+        <header class="topbar">
+          <div><p class="eyebrow">CREATIVE LAB / 01</p><h1>Biến ý tưởng thành khung hình.</h1></div>
+          <button class="outline-button" id="resetButton" type="button">Làm mới phiên</button>
+        </header>
+
+        <section class="hero-grid" id="create">
+          <div class="hero-copy">
+            <p class="kicker">TEXT → IMAGE · IMAGE → TEXT</p>
+            <h2>Hình ảnh có chủ đích,<br /><em>không phải ngẫu nhiên.</em></h2>
+            <p>Creative Production Agent phân tích hook, cảm xúc và chuyển động trước khi soạn prompt có thể chỉnh sửa hoàn toàn.</p>
+            <div class="capabilities"><span>✦ Candid realism</span><span>✦ Identity-safe</span><span>✦ Video-ready motion</span></div>
+          </div>
+          <div class="art-card" aria-label="Minh hoạ studio sáng tạo">
+            <div class="orb orb-one"></div><div class="orb orb-two"></div>
+            <div class="portrait-silhouette"><span>ASTRA</span></div>
+            <div class="art-label top-label">NATURAL / 01</div>
+            <div class="art-label bottom-label">BUILD THE FRAME<br />THEN THE FEELING</div>
+          </div>
+        </section>
+
+        <section class="composer" aria-labelledby="composerTitle">
+          <div class="section-heading"><div><p class="eyebrow">BẮT ĐẦU SẢN XUẤT</p><h3 id="composerTitle">Bạn muốn tạo điều gì?</h3></div><span class="live-label">● ASTRA SẴN SÀNG</span></div>
+          <label class="idea-box" for="ideaInput"><span>Ý TƯỞNG</span><textarea id="ideaInput" placeholder="Ví dụ: Một nữ nghệ sĩ độc lập bước ra khỏi ga tàu điện lúc bình minh, cảm giác tự do và đầy khởi đầu."></textarea><small>⌘ Enter để tạo concept</small></label>
+          <div class="composer-actions">
+            <div class="format-group" role="group" aria-label="Tỷ lệ khung hình">
+              <button class="format active" data-format="9:16" type="button">9:16</button><button class="format" data-format="4:5" type="button">4:5</button><button class="format" data-format="1:1" type="button">1:1</button><button class="format" data-format="16:9" type="button">16:9</button>
+            </div>
+            <button class="generate-button" id="generateButton" type="button">Phân tích &amp; tạo prompt <span>↗</span></button>
+          </div>
+        </section>
+
+        <section class="workflow" id="workflow">
+          <div class="section-heading"><div><p class="eyebrow">QUY TRÌNH LÀM VIỆC</p><h3>Từ insight đến image brief.</h3></div><span class="step-count">02 BƯỚC</span></div>
+          <div class="workflow-grid">
+            <article class="step-card"><span class="step-number">01</span><h4>Phân tích ý tưởng</h4><ul><li>Cảm xúc chính &amp; hook 3 giây đầu</li><li>Yếu tố khiến người xem dừng lướt</li><li>Hình ảnh trung tâm &amp; chuyển động video</li></ul></article>
+            <article class="step-card"><span class="step-number">02</span><h4>Đạo diễn khung hình</h4><ul><li>Chủ thể, bối cảnh, ánh sáng, màu sắc</li><li>Trang phục, góc máy, bố cục rõ ràng</li><li>Negative prompt bảo toàn nhận dạng</li></ul></article>
+          </div>
+        </section>
+
+        <section class="result-panel hidden" id="resultPanel" aria-live="polite">
+          <div class="section-heading"><div><p class="eyebrow">ASTRA CREATIVE BRIEF</p><h3>Concept đã sẵn sàng để bạn tinh chỉnh.</h3></div><button class="copy-button" id="copyButton" type="button">Sao chép prompt</button></div>
+          <div class="insight-grid" id="insights"></div>
+          <label class="prompt-label" for="promptOutput">MAIN TEXT-TO-IMAGE PROMPT — BẠN TOÀN QUYỀN CHỈNH SỬA</label>
+          <textarea id="promptOutput" class="prompt-output"></textarea>
+          <details><summary>Negative prompt / tránh lỗi AI</summary><p id="negativeOutput"></p></details>
+        </section>
+
+        <section class="vision-panel" id="analysis">
+          <div><p class="eyebrow">IMAGE → TEXT</p><h3>Đọc một khung hình, tìm đúng ngôn ngữ.</h3><p>Tải ảnh tham khảo lên để Astra tách chủ thể, ánh sáng, bố cục và chuyển thành prompt sản xuất.</p></div>
+          <label class="upload-zone" for="imageUpload"><input id="imageUpload" type="file" accept="image/*" /><span id="uploadIcon">↑</span><strong id="uploadTitle">Tải ảnh tham khảo</strong><small id="uploadHint">PNG, JPG hoặc WEBP</small></label>
+        </section>
+      </section>
+    </main>
+    <script src="/js/studio.js"></script>
+  </body>
 </html>
